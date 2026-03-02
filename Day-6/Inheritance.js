@@ -18,6 +18,6 @@ class Car extends Vehicle{
     }
 }
 
-const car1 = new Vehicle("Toyota");
+const car1 = new Car("Toyota");
 console.log(`Brand: ${car1.brand}`);
 car1.start();
