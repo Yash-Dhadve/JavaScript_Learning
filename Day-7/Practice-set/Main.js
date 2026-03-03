@@ -1,23 +1,29 @@
 /*
-Create class Vehicle with method start()
-Create class Bike overriding start()
+Create class Payment with method pay()
+Create class CreditCard overriding pay()
 */
 
-class Vehicle{
-    start(){
-        console.log("Starting Vehicle...")
+class Payment{
+
+    constructor(amount){
+        this.amount = amount;
+    }
+
+    pay(){
+        console.log(`Paying amount`)
     }
 }
 
-class Bike extends Vehicle{
-    start(){
-        console.log("Starting Bike...")
+class CreditCard extends Payment{
+
+    constructor(amount){
+        super(amount);
+    }
+
+    pay(){
+        console.log(`Paying: ${this.amount}`)
     }
 }
 
-let v1 = new Vehicle()
-let b1 = new Bike()
-
-v1.start()
-b1.start()
-
+let c1 = new CreditCard(100);
+c1.pay();
