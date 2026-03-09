@@ -20,6 +20,11 @@ class BankAccount{
     getBalance(){
         return this.#balance;
     }
+
+    displayDetails(){
+        console.log("Account Holder: ",this.accountHolder);
+        console.log("Account Balance: ",this.#balance);
+    }
 }
 
 class SavingsAccount extends BankAccount{
@@ -33,12 +38,20 @@ class SavingsAccount extends BankAccount{
     calculateInterest(){
         return this.getBalance() * (this.#interestRate/100);
     }
+
+    displayDetails(){
+        super.displayDetails();
+        console.log("Account Interest Rate: ",this.#interestRate);
+        console.log("Calculated Interest: ",this.calculateInterest(),"\n");
+    }
 }
 
 let acc1 = new SavingsAccount("Yash Dhadve", 1000, 2);
 
-console.log("Account Balance: ",acc1.getBalance()+"\n");
+console.log("Account Balance: ",acc1.getBalance());
 acc1.deposit(500);
-console.log("Account Balance After Depositing: ",acc1.getBalance(),"\n");
+console.log("Account Balance After Depositing: ",acc1.getBalance());
 acc1.withdraw(200);
 console.log("Account Balance After Withdraw: ",acc1.getBalance(),"\n");
+
+acc1.displayDetails();
